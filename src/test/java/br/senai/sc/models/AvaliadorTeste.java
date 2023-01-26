@@ -23,4 +23,16 @@ public class AvaliadorTeste {
         Assert.assertEquals(200,leiloeiro.getMenorDeTodos(),0);
     }
 
+    @Test
+    public void naoDeveAvaliarLeilaoSemLances(){
+        Usuario brayam = new Usuario("Brayam",25,"111.222.333-45");
+        Lance l1 = new Lance(200,brayam);
+        Lance l2 = new Lance(300,brayam);
+        Lance l3 = new Lance(400,brayam);
+        Leilao leilao =  new Leilao(new Date(2023,01,18),new Date(2023,01,20));
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+        Assert.assertThrows(IllegalArgumentException.class,()->leiloeiro.avalia(leilao));
+    }
+
 }
