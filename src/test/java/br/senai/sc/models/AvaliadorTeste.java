@@ -18,8 +18,9 @@ public class AvaliadorTeste {
         leilao.adiciona(l2);
         leilao.adiciona(l3);
         Avaliador leiloeiro = new Avaliador();
-        Assert.assertEquals(400,leiloeiro.getMaiorDeTodos(),1);
-        Assert.assertEquals(200,leiloeiro.getMenorDeTodos(),1);
+        leiloeiro.avalia(leilao);
+        Assert.assertEquals(400,leiloeiro.getMaiorDeTodos(),0);
+        Assert.assertEquals(200,leiloeiro.getMenorDeTodos(),0);
     }
 
 }
