@@ -9,6 +9,9 @@ public class Avaliador {
     }
     public void avalia(Leilao leilao) {
         List<Lance> lancesDoLeilao = leilao.getListaLances();
+        if (lancesDoLeilao.isEmpty()){
+            throw new IllegalArgumentException("Lista de lances vazia");
+        }
         for (Lance lance : lancesDoLeilao){
             if (lance.getValor() > this.maiorDeTodos){
                 this.maiorDeTodos = lance.getValor();
